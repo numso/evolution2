@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Evolution 2 Editor</title>
+    <meta name="description" content="Evolution 2 Editor">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+      html {
+        height: 100%;
+      }
+      body {
+        background-color: gray;
+        display: flex;
+        height: 100%;
+      }
+      #toolsPanel {
+        position: relative;
+        width: 300px;
+        background-color: white;
+        box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+      }
+      #editPanel {
+        flex: 1;
+        overflow: auto;
+      }
+      .items {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .items div {
+        cursor: pointer;
+        width: 100px;
+        border: 3px solid transparent;
+        height: 130px;
+        text-align: center;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+      }
+      .items .selected {
+        cursor: inherit;
+        border: 3px solid black;
+        background-color: #ccc;
+      }
+      .items img {
+        display: block;
+        width: 40px;
+      }
+      .saveload {
+        padding: 20px;
+        border-bottom: 1px solid;
+        margin-bottom: 20px;
+      }
+      #messages div:first-child {
+        padding-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="toolsPanel">
+      <div class="saveload">
+        <div style>
+          <input id="lbl" type="text"/>
+          <button id="save">Save</button>
+          <button id="load">Load</button>
+        </div>
+        <div id="messages"></div>
+      </div>
+      <div class="items">
+        <div data-tile-id="0" class="selected">Block <img src="img/components/block.png"/></div>
+        <div data-tile-id="1">Trampoline <img src="img/components/trampoline.png"/></div>
+        <div data-tile-id="start">Starting Location <img src="img/char/frame02_handDown.png"/></div>
+        <div data-tile-id="end">Ending Location <img src="img/components/end-goal.png"/></div>
+        <div data-tile-id="-1">Remove <img src="img/components/remove.png"/></div>
+      </div>
+    </div>
+    <div id="editPanel"></div>
+    <script src="build/editor.js"></script>
+  </body>
+</html>
